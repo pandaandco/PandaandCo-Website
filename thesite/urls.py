@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+"""
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^website/', include('website.urls')),
+    from django.conf.urls import url
+"""
+from . import views
+urlpatterns = [
+    url(r'^$', views.post_list, name='post_list'),
+    url(r'^website/', include('website.urls')),
+    url(r'^$', views.index, name='index'),
+]
 ]
